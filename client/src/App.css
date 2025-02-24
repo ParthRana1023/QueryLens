@@ -1,0 +1,151 @@
+/* App.css */
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-primary: #e94560;
+  --text-secondary: #0f3460;
+  --accent: #e94560;
+  --accent-hover: #c23a51;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: #ffffff;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.main-content h1 {
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.pdf-upload {
+  margin-bottom: 30px;
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.pdf-upload h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.pdf-upload input[type="file"] {
+  display: none;
+}
+
+.pdf-upload label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.pdf-upload label:hover {
+  background-color: var(--accent-hover);
+}
+
+.user-input {
+  margin-bottom: 30px;
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.user-input h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.user-input textarea {
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.user-input button {
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.user-input button:hover {
+  background-color: var(--accent-hover);
+}
+
+.answer {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.answer h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-top: 20px;
+}
