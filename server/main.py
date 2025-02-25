@@ -17,7 +17,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-UPLOAD_FOLDER = 'models/pdf'
+UPLOAD_FOLDER = 'services/pdf'
 ALLOWED_EXTENSIONS = {'pdf'}
 
 app.include_router(pdf_routes, prefix="/pdf")

@@ -1,26 +1,47 @@
-import React, { useState } from "react";
-import Sidebar from "./components/Sidebar";
-import PDFUpload from "./components/PDFUpload";
-import UserInput from "./components/UserInput";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import PDFUploader from "./components/PDFUploader";
+import PDFLibrary from "./components/PDFLibrary";
+import ChatInterface from "./components/ChatInterface";
+import PDFViewer from "./components/PDFViewer";
+import { BookOpen } from "lucide-react";
 
 function App() {
-  const [uploadedPDFs, setUploadedPDFs] = useState([]);
+  const [pdfs, setPdfs] = useState([]);
+  const [selectedPDF, setSelectedPDF] = useState(null);
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Fetch existing PDFs from the server when the component mounts
+  useEffect(() => {
+    const fetchPDFs = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/pdf/list");
+        if (response.ok) {
+          const data = await response.json();
+          setPdfs(data.map((filename) => ({ name: filename }))); // Store as objects
+        } else {
+          console.error("Failed to fetch PDFs");
+        }
+      } catch (error) {
+        console.error("Error fetching PDFs:", error);
+      }
+    };
+
+    fetchPDFs();
+  }, []);
 
   const handlePDFUpload = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:8000/upload", {
+      const response = await fetch("http://localhost:8000/pdf/upload", {
         method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        setUploadedPDFs([...uploadedPDFs, file.name]);
+        setPdfs((prevPdfs) => [...prevPdfs, { name: file.name }]); // Add new file
       } else {
         const data = await response.json();
         alert(`Upload failed: ${data.error}`);
@@ -31,10 +52,28 @@ function App() {
     }
   };
 
+  const handlePDFDelete = async (pdfToDelete) => {
+    try {
+      const response = await fetch(`http://localhost:8000/pdf/delete/${pdfToDelete.name}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        setPdfs(pdfs.filter((pdf) => pdf.name !== pdfToDelete.name)); // Remove from state
+      } else {
+        alert("Failed to delete PDF.");
+      }
+    } catch (error) {
+      console.error("Error deleting file:", error);
+      alert("An error occurred while deleting the file.");
+    }
+  };
+
+  // Function for asking questions
   const handleQuestionSubmit = async (question) => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/ask", {
+      const response = await fetch("http://localhost:8000/chat/ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,13 +96,32 @@ function App() {
     }
   };
 
+  // Function to view a PDF by setting the selectedPDF to the URL
+  const handlePDFSelect = (pdf) => {
+    setSelectedPDF(`http://localhost:8000/pdf/view/${pdf.name}`);
+  };
+
   return (
-    <div className="app">
-      <Sidebar uploadedPDFs={uploadedPDFs} />
+    <div className="app-container">
+      <header className="header">
+        <div className="header-content">
+          <div className="header-title">
+            <BookOpen className="header-icon" size={32} />
+            <h1>FinTech PDF Chat</h1>
+          </div>
+        </div>
+      </header>
+
       <main className="main-content">
-        <h1>RAG Model Q&A</h1>
-        <PDFUpload onUpload={handlePDFUpload} />
-        <UserInput onSubmit={handleQuestionSubmit} />
+        <div className="grid-layout">
+          <div className="sidebar">
+            <PDFUploader onFileUpload={handlePDFUpload} />
+            <PDFLibrary pdfs={pdfs} onPDFSelect={handlePDFSelect} onPDFDelete={handlePDFDelete} />
+          </div>
+
+          <ChatInterface onSubmit={handleQuestionSubmit} />
+        </div>
+
         {loading && <p className="loading">Thinking...</p>}
         {answer && (
           <div className="answer">
@@ -72,6 +130,8 @@ function App() {
           </div>
         )}
       </main>
+
+      {selectedPDF && <PDFViewer pdf={selectedPDF} onClose={() => setSelectedPDF(null)} />}
     </div>
   );
 }

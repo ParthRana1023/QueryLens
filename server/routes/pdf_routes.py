@@ -5,7 +5,7 @@ from typing import List
 
 pdf_routes = APIRouter()
 
-PDF_FOLDER = 'models/pdf'
+PDF_FOLDER = 'services/pdf'
 
 @pdf_routes.get("/view/{filename}")
 async def view_pdf(filename: str):
