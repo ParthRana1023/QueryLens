@@ -9,7 +9,7 @@ load_dotenv()
 def get_answer(question):
     # Initialize components
     embeddings = OpenAIEmbeddings()
-    llm = ChatOpenAI(model_name="gpt-4o", temperature=0.2)
+    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.1)
     index_name = "pdf-chatbot"
     
     # Connect to Pinecone

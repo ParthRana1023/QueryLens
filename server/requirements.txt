@@ -1,0 +1,9 @@
+langchain-openai 
+pinecone-client 
+langchain-community 
+langchain-text_splitters 
+pypdf 
+python-dotenv 
+langchain-pinecone
+flask
+flask-cors

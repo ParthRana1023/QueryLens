@@ -56,6 +56,10 @@ def process_pdfs(pdf_path):
 
 if __name__ == "__main__":
     pdf_directory = "models/pdf"
+
+    if not os.path.exists(pdf_directory):
+        os.makedirs(pdf_directory)
+        
     for pdf_file in os.listdir(pdf_directory):
         if pdf_file.endswith(".pdf"):
             pdf_path = os.path.join(pdf_directory, pdf_file)
