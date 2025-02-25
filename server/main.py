@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from services.embeddings import process_pdfs
 from services.rag_model import get_answer
 from routes.pdf_routes import pdf_routes
+from routes.chat_route import chat_router
 
 app = FastAPI()
 
@@ -20,6 +21,7 @@ UPLOAD_FOLDER = 'models/pdf'
 ALLOWED_EXTENSIONS = {'pdf'}
 
 app.include_router(pdf_routes, prefix="/pdf")
+app.include_router(chat_router, prefix="/chat")
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
