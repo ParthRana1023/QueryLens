@@ -27,7 +27,8 @@ def process_pdfs(pdf_path: str):
         pc.create_index(
             name=index_name,
             dimension=embeddings.dimensions,
-            metric='euclidean',
+            metric='cosine',
+            
             spec=ServerlessSpec(
                 cloud='aws',
                 region=os.getenv("PINECONE_ENV")
@@ -54,7 +55,7 @@ def process_pdfs(pdf_path: str):
     print(f"Processed {os.path.basename(pdf_path)}")
 
 if __name__ == "__main__":
-    pdf_directory = "models/pdf"
+    pdf_directory = "services/pdf"
 
     if not os.path.exists(pdf_directory):
         os.makedirs(pdf_directory)

@@ -28,7 +28,6 @@ def allowed_file(filename):
 async def upload_file(file: UploadFile = File(...)):
     print(f"Received file: {file.filename}")  # Log received file name
     if not allowed_file(file.filename):
-        print("Invalid file type")
         raise HTTPException(status_code=400, detail="Invalid file type")
     
     try:
@@ -37,7 +36,6 @@ async def upload_file(file: UploadFile = File(...)):
             print(f"Created upload folder: {UPLOAD_FOLDER}")
 
         file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-        print(f"Saving file to {file_path}")
         with open(file_path, "wb") as buffer:
             content = await file.read()
             buffer.write(content)
@@ -46,18 +44,17 @@ async def upload_file(file: UploadFile = File(...)):
         
         # Process the newly uploaded PDF
         try:
-            print(f"Processing PDF: {file_path}")
             process_pdfs(file_path)
             print(f"PDF processed successfully: {file_path}")
         except Exception as e:
             print(f"Error processing PDF: {str(e)}")
             raise HTTPException(status_code=500, detail=f"Error processing PDF: {str(e)}")
         
-        print("File uploaded and processed successfully")
         return {"message": "File uploaded and processed successfully"}
     except Exception as e:
         print(f"Error uploading file: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error uploading file: {str(e)}")
+
 @app.post("/ask")
 async def ask_question(question: str):
     if not question:

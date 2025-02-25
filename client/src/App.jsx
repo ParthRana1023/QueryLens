@@ -14,7 +14,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:5000/upload", {
+      const response = await fetch("http://localhost:8000/upload", {
         method: "POST",
         body: formData,
       });
@@ -34,7 +34,7 @@ function App() {
   const handleQuestionSubmit = async (question) => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/ask", {
+      const response = await fetch("http://localhost:8000/ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
