@@ -1,4 +1,3 @@
-# models/model.py
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
@@ -6,10 +5,10 @@ from langchain.chains import RetrievalQA
 
 load_dotenv()
 
-def get_answer(question):
+def get_answer(question: str) -> str:
     # Initialize components
     embeddings = OpenAIEmbeddings()
-    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.1)
+    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
     index_name = "pdf-chatbot"
     
     # Connect to Pinecone

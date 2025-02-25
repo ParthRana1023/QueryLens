@@ -3,6 +3,7 @@ import React from "react";
 function PDFUpload({ onUpload }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+    console.log("Selected file:", file); // Log file details
     if (file && file.type === "application/pdf") {
       onUpload(file);
     } else {

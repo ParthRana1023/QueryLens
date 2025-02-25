@@ -1,4 +1,3 @@
-# models/embeddings.py
 import os
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
@@ -10,7 +9,7 @@ from pinecone import Pinecone, ServerlessSpec
 # Load environment variables
 load_dotenv()
 
-def process_pdfs(pdf_path):
+def process_pdfs(pdf_path: str):
     # Initialize OpenAI embeddings
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
