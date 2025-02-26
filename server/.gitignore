@@ -8,4 +8,4 @@ venv/
 .env
 
 # Exclude the pdf folder
-pdf/
+services/pdf/

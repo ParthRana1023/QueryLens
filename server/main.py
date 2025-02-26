@@ -1,7 +1,6 @@
 import os
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from services.rag_model import get_answer
 from routes.pdf_routes import pdf_routes
 from routes.chat_route import chat_router
 

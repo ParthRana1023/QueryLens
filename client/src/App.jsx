@@ -146,7 +146,7 @@ function App() {
         <div className="header-content">
           <div className="header-title">
             <BookOpen className="header-icon" size={32} />
-            <h1>FinTech PDF Chat</h1>
+            <h1>QueryLens</h1>
           </div>
         </div>
       </header>

@@ -18,7 +18,7 @@ def process_pdfs(pdf_path: str):
     
     # Configure Pinecone
     pc = Pinecone(
-        api_key=os.getenv("PINECONE_API_KEY") | input("Please enter your Pinecone API key: ")
+        api_key=os.getenv("PINECONE_API_KEY") or input("Please enter your Pinecone API key: ")
     )
     index_name = "pdf-chatbot"
     
@@ -31,7 +31,7 @@ def process_pdfs(pdf_path: str):
             
             spec=ServerlessSpec(
                 cloud='aws',
-                region=os.getenv("PINECONE_ENV") | input("Please enter your Pinecone region: ")
+                region=os.getenv("PINECONE_ENV") or input("Please enter your Pinecone region: ")
             )
         )
     
