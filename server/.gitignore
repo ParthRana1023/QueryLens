@@ -7,8 +7,5 @@ venv/
 # Exclude environment variable files
 .env
 
-# Include the pdf folder
-!/models/pdf/
-
-# Ignore everything inside the pdf folder
-/models/pdf/*
+# Exclude the pdf folder
+pdf/

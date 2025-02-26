@@ -1,9 +1,12 @@
+import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain.chains import RetrievalQA
 
 load_dotenv()
+
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY") or input("Please enter your OpenAI API key: ")
 
 def get_answer(question: str) -> str:
     # Initialize components
