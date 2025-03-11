@@ -22,7 +22,7 @@ def process_pdfs(pdf_path: str):
     
     # Configure Pinecone
     pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-    index_name = "pdf-chatbot"
+    index_name = "querylens"
     
     # Create index with correct dimensions
     if index_name not in pc.list_indexes().names():

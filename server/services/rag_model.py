@@ -24,7 +24,7 @@ def get_answer(question: str) -> str:
         groq_api_key=os.getenv("GROQ_API_KEY")
     )
     
-    index_name = "pdf-chatbot"
+    index_name = "querylens"
     
     vector_store = PineconeVectorStore(
         index_name=index_name,
