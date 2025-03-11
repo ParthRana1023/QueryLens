@@ -1,33 +1,42 @@
 import os
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_groq import ChatGroq
+from langchain_huggingface import HuggingFaceEmbeddings  # Updated import
 from langchain_pinecone import PineconeVectorStore
 from langchain.chains import RetrievalQA
+from huggingface_hub import login  # Add this import
 
 load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY") or input("Please enter your OpenAI API key: ")
+login(token=os.getenv("HUGGINGFACEHUB_API_TOKEN"))
 
 def get_answer(question: str) -> str:
-    # Initialize components
-    embeddings = OpenAIEmbeddings()
-    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
+    # Use updated embeddings
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_kwargs={'device': 'cpu'}
+    )
+    
+    # Configure Groq
+    llm = ChatGroq(
+        temperature=0.7,
+        model_name="mixtral-8x7b-32768",
+        groq_api_key=os.getenv("GROQ_API_KEY")
+    )
+    
     index_name = "pdf-chatbot"
     
-    # Connect to Pinecone
     vector_store = PineconeVectorStore(
         index_name=index_name,
         embedding=embeddings
     )
     
-    # Create QA chain
     qa = RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
         retriever=vector_store.as_retriever()
     )
     
-    # Get answer
     result = qa.invoke(question)
     return result['result']
 
