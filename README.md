@@ -68,3 +68,9 @@ Technologies used in the project:
 - Hugging Face
 - Python-multipart
 - FileResponse
+
+<h2>🌊 Flow of the Tech Stack:</h2>
+
+Frontend/Client → FastAPI Server → LangChain RAG Pipeline → Groq LLM
+PDF Upload → PyPDF Loader → Text Splitters → Hugging Face Embeddings → Pinecone Vector Store
+Query → Pinecone Retrieval → Groq LLM → Response
