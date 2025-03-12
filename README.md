@@ -14,7 +14,7 @@
 
 <img src="https://media-hosting.imagekit.io//c225084da9374893/Screenshot%20(54).png?Expires=1836367881&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=kbVSBAmvkWRspTEVGFngymKxzIDu3NsV5Td4M0QX8mEwCeRET~HpdEqJGeWqhBbprmvpWPsBBiUMLuoExZG1e3HR5opEQEm-M~esp1ZeWN8hY1ExXlbuQFawxVppL~CqBrn4RLlCCoz0CippD1l3zMS8N6qb2ZkWJbf~Wn9Bxa8RxsnEr6it~IfykBVJqu49GpeP5bVw7F8CaKKnyDgyo~WLrucLjDTs6LarfSN9WMsuFDABZlj23pVm4vqOOTLlTQgb4wc-YZh2K7sXNTabkPHcn1~C9nSJxNH7325hKE3lh6hjWX81ztt6DomZnsqUZqT4SLeNTmBU4-9kLQMBLQ__" alt="project-screenshot" width="75%" height="auto/">
 
-<img src="https://media-hosting.imagekit.io//29db2268c9e4412e/Screenshot%20(55).png?Expires=1836367881&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=koMztfMzN6Vzrp0V7~0MsRls8IZxaRzajdvCH5eoNDuS5eC6BWebtg~xXWW5JSJFYWf5k~M~f21Yd3-POB7BBJ4e6KXWjQpEGcKmS52iUVDlO~d63a4cu~G~~Z45oTiCLymxbtPdWiL0nENzGsoFmTSBY3xGD~ivaAV-C19qVsPSj5DMutf4z-lMfKY1AQhfXI5nv3NOMC1wa1MPKjyrNOckWMJGtfnNXXlHSS~4smxQei7vUPh8R8A~ifYm2NTkvvTsSQh~8EKvwoFEPUlEPePRgx8ymL0UW6e4R3PVlWGiCFUwxUYZvop92u7W0GSDyurq6N625PVP0NTOuEcm2Q__" alt="project-screenshot" width="75%" height="auto/"">
+<img src="https://media-hosting.imagekit.io//29db2268c9e4412e/Screenshot%20(55).png?Expires=1836367881&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=koMztfMzN6Vzrp0V7~0MsRls8IZxaRzajdvCH5eoNDuS5eC6BWebtg~xXWW5JSJFYWf5k~M~f21Yd3-POB7BBJ4e6KXWjQpEGcKmS52iUVDlO~d63a4cu~G~~Z45oTiCLymxbtPdWiL0nENzGsoFmTSBY3xGD~ivaAV-C19qVsPSj5DMutf4z-lMfKY1AQhfXI5nv3NOMC1wa1MPKjyrNOckWMJGtfnNXXlHSS~4smxQei7vUPh8R8A~ifYm2NTkvvTsSQh~8EKvwoFEPUlEPePRgx8ymL0UW6e4R3PVlWGiCFUwxUYZvop92u7W0GSDyurq6N625PVP0NTOuEcm2Q__" alt="project-screenshot" width="75%" height="auto/">
 
 <h2>🧐 Features</h2>
 
