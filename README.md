@@ -10,7 +10,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://media-hosting.imagekit.io//17170a319c874a18/Screenshot%20(53).png?Expires=1836367881&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=qorU0AFwIqa-CQ0lZU4pJqt6SFee9zxDGUXVIG74SWUJNtDc-fm3pQgBWpz03BoPcNdnbaVd41wDod8t0vy204ADewgNPFHk6v1CL1fUq~jzI0ZvIaBC5EpfObY049bptuv~IHVxXV2vfCUofMjZHC8w9wztFD-SxOc~VNc7lXKwb4YvPQFpmjFy8a1WkxI6FxR7I9oVBiJMrfQRN-64qb1yKSuV0~nOXJtOCIZDa-SLEW7gVWvJRTv-l4h2a8~9lpb6Q8zvrqL6teVKU872iU9hGVsoXzgHJYNbksHyj8FUdDVJKU470xIMX~YnHpbO60EVeWS1XGGDwhLoqtcGMg__" alt="project-screenshot" width="1980" height="1080/">
+<img src="https://media-hosting.imagekit.io//17170a319c874a18/Screenshot%20(53).png?Expires=1836367881&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=qorU0AFwIqa-CQ0lZU4pJqt6SFee9zxDGUXVIG74SWUJNtDc-fm3pQgBWpz03BoPcNdnbaVd41wDod8t0vy204ADewgNPFHk6v1CL1fUq~jzI0ZvIaBC5EpfObY049bptuv~IHVxXV2vfCUofMjZHC8w9wztFD-SxOc~VNc7lXKwb4YvPQFpmjFy8a1WkxI6FxR7I9oVBiJMrfQRN-64qb1yKSuV0~nOXJtOCIZDa-SLEW7gVWvJRTv-l4h2a8~9lpb6Q8zvrqL6teVKU872iU9hGVsoXzgHJYNbksHyj8FUdDVJKU470xIMX~YnHpbO60EVeWS1XGGDwhLoqtcGMg__" alt="project-screenshot" width="50%" height="auto/">
 
 <img src="https://media-hosting.imagekit.io//c225084da9374893/Screenshot%20(54).png?Expires=1836367881&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=kbVSBAmvkWRspTEVGFngymKxzIDu3NsV5Td4M0QX8mEwCeRET~HpdEqJGeWqhBbprmvpWPsBBiUMLuoExZG1e3HR5opEQEm-M~esp1ZeWN8hY1ExXlbuQFawxVppL~CqBrn4RLlCCoz0CippD1l3zMS8N6qb2ZkWJbf~Wn9Bxa8RxsnEr6it~IfykBVJqu49GpeP5bVw7F8CaKKnyDgyo~WLrucLjDTs6LarfSN9WMsuFDABZlj23pVm4vqOOTLlTQgb4wc-YZh2K7sXNTabkPHcn1~C9nSJxNH7325hKE3lh6hjWX81ztt6DomZnsqUZqT4SLeNTmBU4-9kLQMBLQ__" alt="project-screenshot" width="1980" height="1080/">
 
