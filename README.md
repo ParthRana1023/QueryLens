@@ -72,5 +72,7 @@ Technologies used in the project:
 <h2>🌊 Flow of the Tech Stack:</h2>
 
 Frontend/Client → FastAPI Server → LangChain RAG Pipeline → Groq LLM
+</br>
 PDF Upload → PyPDF Loader → Text Splitters → Hugging Face Embeddings → Pinecone Vector Store
+</br>
 Query → Pinecone Retrieval → Groq LLM → Response
