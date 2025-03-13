@@ -3,11 +3,13 @@ uvicorn
 python-dotenv
 langchain-community
 langchain_huggingface
-langchain_pinecone
-pinecone-client
+# langchain_pinecone
+# pinecone-client
 langchain-groq
 sentence-transformers
 huggingface_hub
 pypdf
 pydantic
 python-multipart
+chromadb
+langchain-chroma

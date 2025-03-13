@@ -1,17 +1,16 @@
 import os
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEmbeddings  # Updated import
-from langchain_pinecone import PineconeVectorStore
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
 from langchain.chains import RetrievalQA
-from huggingface_hub import login  # Add this import
+from huggingface_hub import login
 
 load_dotenv()
 
 login(token=os.getenv("HUGGINGFACEHUB_API_TOKEN"))
 
 def get_answer(question: str) -> str:
-    # Use updated embeddings
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         model_kwargs={'device': 'cpu'}
@@ -24,11 +23,11 @@ def get_answer(question: str) -> str:
         groq_api_key=os.getenv("GROQ_API_KEY")
     )
     
-    index_name = "querylens"
-    
-    vector_store = PineconeVectorStore(
-        index_name=index_name,
-        embedding=embeddings
+    # Connect to ChromaDB
+    vector_store = Chroma(
+        collection_name="querylens",
+        embedding_function=embeddings,
+        persist_directory="./database/chroma_db"
     )
     
     qa = RetrievalQA.from_chain_type(

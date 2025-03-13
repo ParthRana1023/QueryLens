@@ -4,6 +4,8 @@ import os
 from typing import List
 from services.embeddings import process_pdfs
 from fastapi import File, UploadFile 
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
 
 pdf_routes = APIRouter()
 
@@ -66,15 +68,32 @@ async def view_pdf(filename: str):
 
 @pdf_routes.delete("/delete/{filename}")
 async def delete_pdf(filename: str):
-    """
-    Route to delete a PDF file.
-    """
     file_path = os.path.join(PDF_FOLDER, filename)
     
     if os.path.exists(file_path):
         try:
+            # First delete the file
             os.remove(file_path)
-            return {"message": f"PDF {filename} deleted successfully"}
+            
+            # Now delete associated vectors
+            embeddings = HuggingFaceEmbeddings(
+                model_name="sentence-transformers/all-MiniLM-L6-v2",
+                model_kwargs={'device': 'cpu'},
+                encode_kwargs={'normalize_embeddings': True}
+            )
+            
+            vector_store = Chroma(
+                collection_name="querylens",
+                embedding_function=embeddings,
+                persist_directory="./database/chroma_db"
+            )
+            
+            # Get all document IDs with matching pdf_name
+            existing_docs = vector_store.get(where={"pdf_name": filename})
+            if existing_docs and existing_docs['ids']:
+                vector_store.delete(ids=existing_docs['ids'])
+            
+            return {"message": f"PDF {filename} and associated vectors deleted successfully"}
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Failed to delete PDF: {str(e)}")
     else:
